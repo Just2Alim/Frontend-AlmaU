@@ -1,0 +1,201 @@
+:root {
+  --bg: #0b1020;
+  --panel: rgba(255, 255, 255, 0.06);
+  --panel-2: rgba(255, 255, 255, 0.08);
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.70);
+  --muted-2: rgba(255, 255, 255, 0.55);
+
+  --border: rgba(255, 255, 255, 0.10);
+  --shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+
+  --primary: #7c3aed;     /* violet */
+  --primary-2: #22c55e;   /* green */
+  --danger: #ef4444;
+
+  --radius: 18px;
+  --radius-sm: 12px;
+
+  --max: 980px;
+
+  --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+•⁠  ⁠{
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text);
+  background: radial-gradient(1000px 600px at 20% 10%, rgba(124, 58, 237, 0.35), transparent 60%),
+              radial-gradient(1000px 600px at 80% 0%, rgba(34, 197, 94, 0.25), transparent 60%),
+              radial-gradient(800px 500px at 70% 80%, rgba(59, 130, 246, 0.20), transparent 60%),
+              var(--bg);
+  overflow-x: hidden;
+}
+
+/* nice selection */
+::selection {
+  background: rgba(124, 58, 237, 0.35);
+}
+
+a {
+  color: inherit;
+}
+
+/* ========== Typography ========== */
+h1 {
+  margin: 0 0 10px;
+  font-size: clamp(26px, 3.3vw, 36px);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  margin: 0 0 10px;
+  font-size: 22px;
+}
+
+p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ========== Helpers ========== */
+.container {
+  width: min(var(--max), calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.card {
+  background: linear-gradient(180deg, var(--panel), rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.card__body {
+  padding: 18px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.badge::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 99px;
+  background: var(--primary);
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.18);
+}
+
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 14px 0;
+}
+
+/* ========== Buttons ========== */
+.btn {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.95), rgba(59, 130, 246, 0.85));
+  box-shadow: 0 12px 24px rgba(124, 58, 237, 0.25);
+  transition: transform 0.15s ease, filter 0.2s ease, box-shadow 0.2s ease;
+  font-weight: 600;
+}
+
+.btn:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0px);
+}
+
+.btn--ghost {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  box-shadow: none;
+  color: var(--text);
+}
+
+.btn--danger {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.95), rgba(244, 63, 94, 0.85));
+  box-shadow: 0 12px 24px rgba(239, 68, 68, 0.25);
+}
+
+/* ========== Lists ========== */
+.list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list__item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.list__item:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.list__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 14px;
+  text-decoration: none;
+}
+
+.list__title {
+  font-weight: 650;
+  color: var(--text);
+}
+
+.list__meta {
+  font-size: 13px;
+  color: var(--muted-2);
+}
+
+.chev {
+  opacity: 0.7;
+  transition: transform 0.15s ease, opacity 0.2s ease;
+}
+
+.list__item:hover .chev {
+  transform: translateX(2px);
+  opacity: 1;
+}
